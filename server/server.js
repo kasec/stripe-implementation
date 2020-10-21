@@ -45,7 +45,7 @@ app.post("/.netlify/functions/api-rest/create-payment-intent", async (req, res) 
 });
 
 let getProductDetails = () => {
-  return { currency: "MXN", amount: 9999 };
+  return { currency: process.env.CURRENCY || 'MXN', amount: process.env.AMOUNT || 99 };
 };
 app.listen(4242, () => console.log(`Node server listening on port ${4242}!`));
 module.exports = app
