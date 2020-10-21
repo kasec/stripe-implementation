@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "How to build a card form to take a payment using React",
   "scripts": {
-    "client": "cd client && yarn && yarn start",
+    "client": "cd client && npm start",
     "server": "cd server && npm start",
-    "start": "yarn && concurrently \"yarn client\" \"yarn server\""
+    "start": "concurrently \"npm run client\" \"npm run server\""
   },
   "author": "stripe-demos",
   "license": "ISC",
