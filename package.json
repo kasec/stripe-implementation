@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "How to build a card form to take a payment using React",
   "scripts": {
-    "client": "cd client && npm start",
+    "client": "cd client && npm i && npm start",
     "server": "cd server && npm start",
     "start": "concurrently \"npm run client\" \"npm run server\""
   },
