@@ -1,0 +1,6 @@
+[build]
+  # functions build directory
+  functions = "functions-build"
+  # This will be run the site build
+  command = "npm install"
+  NODE_ENV = "14.3.0"
