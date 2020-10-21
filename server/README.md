@@ -1,12 +1,22 @@
-# Running the server
+# Name of sample
+An [Express server](http://expressjs.com) implementation
 
-We included several RESTful server that each implement the same endpoints and logic. 
-Pick the language you are most comfortable in and follow the instructions in the directory on how to run.
+## Requirements
+* Node v10+
+* [Configured .env file](../README.md)
 
-# Supported languages
+## How to run
 
-* [JavaScript (Node)](node/README.md)
-* [Python (Flask)](python/README.md)
-* [Ruby (Sinatra)](ruby/README.md)
-* [PHP (Slim)](php/README.md)
-* [Java (Spark)](java/README.md)
+1. Install dependencies
+
+```
+npm install
+```
+
+2. Run the application
+
+```
+npm start
+```
+
+3. Go to `localhost:4242` to see the demo

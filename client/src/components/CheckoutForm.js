@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createRef } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import "./CheckoutForm.css";
 import api from "../api";
@@ -13,6 +13,8 @@ export default function CheckoutForm() {
   const [processing, setProcessing] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
+  
+  const nameInput = createRef();
 
   useEffect(() => {
     // Step 1: Fetch product details such as amount and currency from
@@ -36,17 +38,17 @@ export default function CheckoutForm() {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     setProcessing(true);
-
+    console.log({name: nameInput.current.value})
     // Step 3: Use clientSecret from PaymentIntent and the CardElement
     // to confirm payment with stripe.confirmCardPayment()
-    const payload = await stripe.confirmCardPayment(clientSecret, {
+    const payload = nameInput.current.value ? await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
           name: ev.target.name.value,
         },
       },
-    });
+    }) : { error: { message: 'Ingrese el nombre' } }
 
     if (payload.error) {
       setError(`Payment failed: ${payload.error.message}`);
@@ -63,11 +65,11 @@ export default function CheckoutForm() {
 
   const renderSuccess = () => {
     return (
-      <div className="sr-field-success message">
-        <h1>Your test payment succeeded</h1>
-        <p>View PaymentIntent response:</p>
+      metadata && <div className="sr-field-success message">
+        <h1>Tu pago a sido exitoso!</h1>
+        <p>Detalles:</p>
         <pre className="sr-callout">
-          <code>{JSON.stringify(metadata, null, 2)}</code>
+          Tu haz pagado: <code>$ {metadata.amount / 100} {metadata.currency}</code>
         </pre>
       </div>
     );
@@ -100,7 +102,7 @@ export default function CheckoutForm() {
             minimumFractionDigits: 2,
           })}{" "}
         </h1>
-        <h4>Pre-order the Pasha package</h4>
+        <h4>Ingrese los datos aqui abajo.</h4>
 
         <div className="sr-combo-inputs">
           <div className="sr-combo-inputs-row">
@@ -111,6 +113,7 @@ export default function CheckoutForm() {
               placeholder="Name"
               autoComplete="cardholder"
               className="sr-input"
+              ref={nameInput}
             />
           </div>
 

@@ -106,6 +106,9 @@ h4 {
 }
 
 .sr-field-success {
+  background-color: #0064f03b;
+  padding: 4rem;
+  border-radius: 10px;
   text-align: left;
   font-size: 13px;
   line-height: 17px;
@@ -200,8 +203,7 @@ input[type="text"]::placeholder {
   background-position: right 12px top 50%, 0 0;
   background-size: 0.65em auto, 100%;
 }
-.sr-select:after {
-}
+
 .sr-select::-ms-expand {
   display: none;
 }
@@ -218,7 +220,6 @@ input[type="text"]::placeholder {
 }
 .sr-select:invalid {
   color: var(--gray-light);
-  background-opacity: 0.4;
 }
 
 /* Combo inputs */
