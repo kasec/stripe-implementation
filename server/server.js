@@ -3,6 +3,10 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+const path = require('path')
+
+const staticPath = path.join(__dirname, '../client/build')
+app.use(express.static(staticPath))
 
 
 // Use JSON parser for all non-webhook routes
