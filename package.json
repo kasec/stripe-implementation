@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "description": "How to build a card form to take a payment using React",
   "scripts": {
-    "build:client": "cd client && npm i && npm run build",
     "client": "cd client && npm start",
     "server": "cd server && npm start",
-    "start": "npm run build:client && npm i && npm run server"
+    "start": "concurrently \"npm run client\" \"npm run server\"",
+    "build:client": "cd client && npm i && npm run build",
+    "move:build": "mv client/build public",
+    "clean": "rm -rf functions-build && mkdir functions-build",
+    "zip": "cd server && npm install && zip -r api-rest.zip *",
+    "postzip": "mv server/api-rest.zip functions-build",
+    "prebuild": "npm run clean && npm run zip && npm run build:client && npm run move:build"
   },
   "author": "stripe-demos",
   "license": "ISC",

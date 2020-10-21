@@ -1,6 +1,6 @@
 const createPaymentIntent = options => {
   return window
-    .fetch(`/create-payment-intent`, {
+    .fetch(`/.netlify/functions/api-rest/create-payment-intent`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -26,7 +26,7 @@ const createPaymentIntent = options => {
 
 const getProductDetails = options => {
   return window
-    .fetch(`/product-details`, {
+    .fetch(`/.netlify/functions/api-rest/product-details`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -51,7 +51,7 @@ const getProductDetails = options => {
 
 const getPublicStripeKey = options => {
   return window
-    .fetch(`/public-key`, {
+    .fetch(`/.netlify/functions/api-rest/public-key`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"

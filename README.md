@@ -12,3 +12,8 @@ stripe-implementation> cd server && npm i && yarn start
 ```
 
 > Create `.env` file in **server** dir. with `.env.example` *variables*
+
+Deployed w=in netlify as a serverless function
+
+TODO 
+- Add nodeEnv to show netlify url just in production

@@ -3,11 +3,6 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const path = require('path')
-
-const staticPath = path.join(__dirname, '../client/build')
-app.use(express.static(staticPath))
-
 
 // Use JSON parser for all non-webhook routes
 app.use((req, res, next) => {
@@ -18,20 +13,20 @@ app.use((req, res, next) => {
   }
 });
 
-app.get("/", (req, res) => {
+app.get("/.netlify/functions/api-rest", (req, res) => {
   res.send("Hello from API");
 });
 
-app.get("/public-key", (req, res) => {
+app.get("/.netlify/functions/api-rest/public-key", (req, res) => {
   res.send({ publicKey: process.env.STRIPE_PUBLISHABLE_KEY });
 });
 
-app.get("/product-details", (req, res) => {
+app.get("/.netlify/functions/api-rest/product-details", (req, res) => {
   let data = getProductDetails();
   res.send(data);
 });
 
-app.post("/create-payment-intent", async (req, res) => {
+app.post("/.netlify/functions/api-rest/create-payment-intent", async (req, res) => {
   const body = req.body;
   const productDetails = getProductDetails();
 
