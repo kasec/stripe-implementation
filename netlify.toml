@@ -2,5 +2,5 @@
   # functions build directory
   functions = "functions-build"
   # This will be run the site build
-  command = "npm install"
+  command = "npm run prebuild"
   NODE_ENV = "14.3.0"
