@@ -5,6 +5,7 @@
   "scripts": {
     "client": "cd client && npm start",
     "server": "cd server && npm start",
+    "start": "concurrently \"npm run client\" \"npm run server\"",
     "build:client": "cd client && npm i && npm run build",
     "move:build": "mv client/build public",
     "clean": "rm -rf functions-build && mkdir functions-build",
