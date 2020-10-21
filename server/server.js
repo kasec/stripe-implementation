@@ -13,7 +13,7 @@ app.use((req, res, next) => {
   }
 });
 
-app.get("/.netlify/functions/api-rest", (req, res) => {
+app.get("/.netlify/functions/api-rest/", (req, res) => {
   res.send("Hello from API");
 });
 
@@ -47,5 +47,5 @@ app.post("/.netlify/functions/api-rest/create-payment-intent", async (req, res) 
 let getProductDetails = () => {
   return { currency: "MXN", amount: 9999 };
 };
-
 app.listen(4242, () => console.log(`Node server listening on port ${4242}!`));
+module.exports = app
