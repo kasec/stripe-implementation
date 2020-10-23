@@ -36,6 +36,7 @@ export default function CheckoutForm() {
   }, []);
 
   const handleSubmit = async (ev) => {
+    console.log('DO something')
     ev.preventDefault();
     setProcessing(true);
     console.log({name: nameInput.current.value})
@@ -110,7 +111,7 @@ export default function CheckoutForm() {
               type="text"
               id="name"
               name="name"
-              placeholder="Name"
+              placeholder="Ingresa tu Nombre"
               autoComplete="cardholder"
               className="sr-input"
               ref={nameInput}
