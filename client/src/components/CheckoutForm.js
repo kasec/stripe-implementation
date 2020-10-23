@@ -36,7 +36,6 @@ export default function CheckoutForm() {
   }, []);
 
   const handleSubmit = async (ev) => {
-    console.log('DO something')
     ev.preventDefault();
     setProcessing(true);
     console.log({name: nameInput.current.value})
@@ -111,7 +110,7 @@ export default function CheckoutForm() {
               type="text"
               id="name"
               name="name"
-              placeholder="Ingresa tu Nombre"
+              placeholder="Ingresa tu Nombre aqui"
               autoComplete="cardholder"
               className="sr-input"
               ref={nameInput}
@@ -132,7 +131,7 @@ export default function CheckoutForm() {
           className="btn"
           disabled={processing || !clientSecret || !stripe}
         >
-          {processing ? "Processing…" : "Pay"}
+          {processing ? "Porcesando…" : "Pagar"}
         </button>
       </form>
     );

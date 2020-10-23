@@ -17,3 +17,4 @@ Deployed w=in netlify as a serverless function
 
 TODO 
 - Add nodeEnv to show netlify url just in production
+- in dev env doesnt works pay button
